@@ -1,7 +1,6 @@
 #include <ESP8266WiFi.h>
 #include <espnow.h>
 #include <Ticker.h>
-
 //EspNow数据设定
 //接收数据保存的结构体和发送方一致
 typedef struct struct_message {
@@ -16,7 +15,6 @@ uint8_t broadcastAddress[3][6] = {
   { 0xEC, 0xFA, 0xBC, 0x35, 0x19, 0xC7 },  //0号IP
   { 0xF4, 0xCF, 0xA2, 0x75, 0x0A, 0x66 },  //1号IP
   { 0x3C, 0x71, 0xBF, 0x38, 0x24, 0xA2 }   //2号IP
-
 };
 
 //计时
@@ -34,6 +32,7 @@ void lastTime(int a) {
   }
 }
 
+
 void ResetTime(int a) {
   if (countT >= a) {
     ESP.deepSleep(3e6);  //3秒后重启
@@ -43,7 +42,6 @@ void ResetTime(int a) {
 
 
 //EspNow设定
-
 //接收和发送
 //在这种情况下，无论是否成功发送该消息，都会简单地打印出来
 String cheakData = "good";
